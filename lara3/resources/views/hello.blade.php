@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Hello {{$name}}</h2>
+    <h2>Hello {{--$name--}}</h2>
+        <ul>
+            @foreach ($name as $n)
+                <li>{{$n}}</li>
+            @endforeach
+        </ul>
+
 </body>
 </html>

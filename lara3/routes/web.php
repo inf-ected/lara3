@@ -31,7 +31,20 @@ Route::get('hello', function () {
     // $name="Vladislav";
     // return view('hello',['name'=>$name]);
     //четвертый вариант compact обрпатная операция extract
-    $name="Vsevolod";
+    // $name="Vsevolod";
+    // return view('hello',compact('name'));
+    // передаем массивы
+    $name=['add task','find task','remove task'];
     return view('hello',compact('name'));
-
+    /* вызов в блэйде
+        <ul>
+            <?php foreach ($name as $n):?>
+            <li><?=$n?></li>
+            <?php endforeach; ?>
+        </ul>
+    или в нотации хелпера
+    @foreach ($name as $n)
+      <li>{{$n}}</li>
+    @endforeach
+    */
 });
