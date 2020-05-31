@@ -14,13 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $tasks = DB::table('tasks')->get();
+    // $tasks = DB::table('tasks')->get();
+    // $tasks = App\Task::all();
+    $tasks=App\Task::incomplete();
+
     return view('welcome',compact('tasks'));
 });
 
 
 Route::get('/{task}', function ($id) {
-    $task = DB::table('tasks')->find($id);
+    // $task = DB::table('tasks')->find($id);
+    $task = App\Task::find($id);
+
     // dd($task);
     return view('show',compact('task'));
 });
