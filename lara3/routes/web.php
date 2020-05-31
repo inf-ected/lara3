@@ -19,6 +19,19 @@ Route::get('/', function () {
 
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('hello', function () {
+    //способы передачи во вью
+    // в массиве вызов в коде {{$name}} или <?=$name 7>
+    // return view('hello',[
+    //     'name'=>'Alex'
+    // ]);
+    // второй вариант
+    // return view('hello')->with('name','alexey');
+    //третий вариант
+    // $name="Vladislav";
+    // return view('hello',['name'=>$name]);
+    //четвертый вариант compact обрпатная операция extract
+    $name="Vsevolod";
+    return view('hello',compact('name'));
+
 });
