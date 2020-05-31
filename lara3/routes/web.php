@@ -14,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tasks = DB::table('tasks')->get();
+    return view('welcome',compact('tasks'));
 });
 
 
+Route::get('/{task}', function ($id) {
+    $task = DB::table('tasks')->find($id);
+    // dd($task);
+    return view('show',compact('task'));
+});
 
 Route::get('hello', function () {
     //способы передачи во вью
